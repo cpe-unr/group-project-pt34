@@ -1,5 +1,93 @@
-/** @file */
+//Author: Seth Lopez
+//Date Due:
+//Purpose: Group Final Project
+
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
+
+#include "wav.h"
+#include "wavManager.h"
+
+using namespace std;
+
+const string testfile = "testing.wav";
+
+
+
+int main() {
+	wavManager *wavVar = new wavManager();
+	wavVar->readFile(testfile);
+
+	
+	ifstream myfile;
+	myfile.open(testfile);
+
+	if (myfile)
+	{
+		
+		//cout << "RIFF header                :" << wavVar.getwavHeader().riff_header << endl;
+		/*cout << "Number of bits used        :" << wavVar.waveHeader.wav_size << endl;
+		cout << "WAVE header                :" << wavVar.waveHeader.wave_header << endl;
+        	cout << "FMT                        :" << wavVar.waveHeader.fmt_header << endl;
+        	cout << "Data size                  :" << wavVar.waveHeader.fmt_chunk_size << endl;
+        	cout << "Audio Format               :" << wavVar.waveHeader.audio_format << endl;
+        	cout << "Number of channels         :" << wavVar.waveHeader.num_channels << endl;
+        	cout << "Sampling Rate              :" << wavVar.waveHeader.sample_rate << endl;
+        	cout << "Number of bytes per second :" << wavVar.waveHeader.byte_rate << endl;
+        	cout << "Block align                :" << wavVar.waveHeader.sample_alignment << endl;
+		//BIT_DEPTH MISSING        	
+		cout << "Data string                :" << wavVar.waveHeader.data_header << endl;
+		cout << "Data length                :" << wavVar.waveHeader.data_bytes << endl;*/
+    	}
+	else
+	{
+		cout<<"Something went wrong!"<<endl;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * \brief   The function bar.
@@ -21,11 +109,5 @@
  * \retval        ERR_SUCCESS    The function is successfully executed
  * \retval        ERR_FAILURE    An error occurred
  */
-void fn(){
 
-}
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
+//void fn(){}
