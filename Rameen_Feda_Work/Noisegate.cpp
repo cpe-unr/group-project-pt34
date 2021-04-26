@@ -9,16 +9,18 @@ Noisegate::Noisegate(int upperthreshold, int lowerthreshold):upperthreshold(uppe
 
 }
 
-void Noisegate::processBuffer(unsigned char* buffer, int bufferSize)
+void Noisegate::processBuffer(unsigned char* buffer, int bufferSize)// BUFFER IS FULL OF JUNK. NEED APPROPIATE VALUES FOR THIS TO WORK.
 {
-    int buffer1;
-    wav_header wav;
+    //buffer = {};
+    Wav wav(8, 16);
+    std::cout << wav.getbit_depth() << std::endl;
     /** 
      * If it is 8 bits then run a for loop, setting buffer[i] to zero if it meets a threshold.
      * Same for 16 bit.
      */ 
-    if(wav.bit_depth = 8)
+    if(wav.getbit_depth() == 8) // Always goes to 8 bit for some reason, even if it is 16 bit audio
     {
+        std::cout << "In the 8 bit" << std::endl;
         for(int i=0;i<bufferSize;i++)
         {
             if(buffer[i] > (ZERO1 - 3) && buffer[i]<(ZERO1 + 3))
@@ -27,18 +29,17 @@ void Noisegate::processBuffer(unsigned char* buffer, int bufferSize)
             }
         }
     }
-    else if(wav.bit_depth = 16){
+    else if(wav.getbit_depth() == 16){
+        std::cout << "In the 16 bit" << std::endl;
         for(int i=0;i<bufferSize;i++)
         {
-            uint16_t buffer1 = (uint16_t)(buffer[i]); 
-            if(buffer1 > (ZERO - 3) && buffer1 < (ZERO + 3))
+            short s = ((short*)buffer)[i];  //NOT WORKING. Due to buffer being full of junk values(?).
+            if(s > (ZERO - 300) && s < (ZERO + 300)) //help
             {
-                //(uint16_t) buffer[i] = ZERO;
+                s = ZERO;
                 
             }
         }
 
     }
-    
-        
 }

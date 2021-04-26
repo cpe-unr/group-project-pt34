@@ -21,6 +21,7 @@ public:
     void readFile(const std::string &fileName);
     void writeFile(const std::string &outFileName);
 private:
+    
     unsigned char* buffer = NULL;
     /**
      * Composition of wav_header class
@@ -32,8 +33,10 @@ public:
     virtual ~Wav();
 
 public:
+    Wav(char eightbit, short sixteenbit);
     unsigned char *getBuffer();
     int getBufferSize() const;
+    int getbit_depth();
 };
 
 

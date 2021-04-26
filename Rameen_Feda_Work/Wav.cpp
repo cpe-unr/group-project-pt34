@@ -19,6 +19,7 @@ void Wav::readFile(const std::string &fileName) {
         file.read((char*)buffer, waveHeader.data_bytes);
         file.close();
     }
+    
 }
 
 
@@ -41,3 +42,21 @@ Wav::~Wav() {
 int Wav::getBufferSize() const {
     return waveHeader.data_bytes;
 }
+
+int Wav::getbit_depth(){
+    return waveHeader.bit_depth;
+}
+
+Wav::Wav(char eightbit, short sixteenbit){
+    std::cout << "In the parameterized constructor" << std::endl;
+    eightbit = 8;
+    sixteenbit = 16;
+
+}
+
+
+
+
+
+
+

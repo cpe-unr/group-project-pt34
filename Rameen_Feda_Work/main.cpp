@@ -23,37 +23,7 @@ int main(){
      * Goes in order from 1 to 3.
      * WORK IN PROGRESS
     */ 
-    int user_input;
-    string file_name;
-    cout << "Please choose one or more processes: " << endl;
-    cout << "1. Normalization 2. Echo 3. Noisegate ";
-    cin >> user_input;
-    if(user_input = 3)
-    {
-        
-        wav.readFile(testfile);
-        Processor *processor2 = new Noisegate();
-        processor2->processBuffer(wav.getBuffer(),wav.getBufferSize());
-        wav.writeFile("noise.wav");
     
-    }
-    /**
-     * Asks user for file name. If file does not exist, create it
-     * If file already exists, give an error.
-     * NOT WORKING 
-    */ 
-    ifstream file_input(file_name);
-    do{
-        cout << "Please enter a file name" << endl;
-        cin >> file_name;
-        if(file_input.fail())
-        {
-            wav.writeFile(file_name);
-        }
-        else if(!file_input.fail())
-        {
-            cout << "Error: File already exists. Please enter a new name";
-        }
-    }while(!file_input.fail());
+    
     
 }
