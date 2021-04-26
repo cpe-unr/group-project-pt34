@@ -33,6 +33,7 @@ public:
     virtual ~Wav();
 
 public:
+    Wav()= default;
     Wav(char eightbit, short sixteenbit);
     unsigned char *getBuffer();
     int getBufferSize() const;
