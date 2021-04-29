@@ -1,9 +1,16 @@
 #include <iostream>
-#include "Noisegate.h"
+#include <string>
 #include "Wav.h"
+#include "Processor.h"
+#include "Echo.h"
+#include "Noisegate.h"
 #include <fstream>
-
 const std::string testfile = "testing.wav";
+const std::string echofile = "echos.wav";
+const std::string limitfile = "limit.wav";
+const std::string noisefile = "noise.wav";
+
+
 
 using namespace std;
 
@@ -14,15 +21,18 @@ int main(){
      */ 
     Wav wav;
     wav.readFile(testfile);
-    Processor *processor2 = new Noisegate();
-    processor2->processBuffer(wav.getBuffer(),wav.getBufferSize());
+    Processor *processor = new Noisegate();
+    cout << "TEST" << endl;
+    processor->processBuffer(wav.getBuffer(),wav.getBufferSize(), wav.getFMT());
+    cout << "TEST 2" << endl;
     wav.writeFile("noise.wav");
 
-    /**
-     * Lets user pick which processes to use
-     * Goes in order from 1 to 3.
-     * WORK IN PROGRESS
-    */ 
+    Wav wav1;
+    wav1.readFile(testfile);
+    Processor *processor1 = new Echo(5);
+    processor1->processBuffer(wav.getBuffer(),wav.getBufferSize(), wav.getFMT());
+    wav.writeFile("echos.wav");
+
     
     
     

@@ -18,7 +18,7 @@ class Noisegate: public Processor
     /**
      * Override of the buffer
      */
-    void processBuffer(unsigned char* buffer, int bufferSize) override;
+    void processBuffer(unsigned char* buffer, int bufferSize, FMT fmt) override;
     
 };
 

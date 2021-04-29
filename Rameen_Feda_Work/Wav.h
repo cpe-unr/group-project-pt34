@@ -11,6 +11,7 @@
  * It will NOT work with stereo files or any other bit-depth than 8 bits.
  */
 #include "Waveheader.h"
+#include "waveHeader_Seth.h"
 #include <string>
 
 class Wav {
@@ -34,10 +35,9 @@ public:
 
 public:
     Wav()= default;
-    Wav(char eightbit, short sixteenbit);
     unsigned char *getBuffer();
     int getBufferSize() const;
-    int getbit_depth();
+    FMT getFMT();
 };
 
 

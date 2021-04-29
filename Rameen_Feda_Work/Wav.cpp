@@ -5,6 +5,7 @@
  */
 
 #include <string>
+#include <cstring>
 #include <fstream>
 #include <iostream>
 #include "Wav.h"
@@ -43,17 +44,12 @@ int Wav::getBufferSize() const {
     return waveHeader.data_bytes;
 }
 
-int Wav::getbit_depth(){
-    return waveHeader.bit_depth;
+
+FMT Wav::getFMT(){
+    FMT fmt;
+    memcpy(&fmt, &waveHeader.audio_format, sizeof(FMT));
+    return fmt;
 }
-
-Wav::Wav(char eightbit, short sixteenbit){
-    std::cout << "In the parameterized constructor" << std::endl;
-    eightbit = 8;
-    sixteenbit = 16;
-
-}
-
 
 
 

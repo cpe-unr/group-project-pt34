@@ -1,6 +1,6 @@
 #ifndef PROCESSOR_H
 #define PROCESSOR_H
-
+#include "waveHeader_Seth.h"
 
 #include <cstdint>
 #include <cmath>
@@ -10,7 +10,7 @@ public:
 /**
  * processBuffer with parameters unsigned char* buffer and int bufferSize
  */ 
-    virtual void processBuffer(unsigned char* buffer, int bufferSize) = 0;
+    virtual void processBuffer(unsigned char* buffer, int bufferSize, FMT fmt) = 0;
 };
 
 
