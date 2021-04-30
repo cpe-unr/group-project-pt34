@@ -7,6 +7,7 @@
 
 #include "waveHeader.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 /*
@@ -16,10 +17,14 @@ using namespace std;
 class wav {
 
 protected:
+	vector <SubChunkInfo> metadata;
 	unsigned char* buffer = NULL;
+	int data_bufferSize;
 	wav_header waveHeader;
 	chunkInfo chunkinfo;
 	FMT fmt;
+	//METADATA metaData;
+	//DATA data;
 	
 public:
 	/*
@@ -32,25 +37,25 @@ public:
 	* unsigned char *getBuffer() used to get buffer data
 	* @return
 	*/
-	unsigned char *getBuffer();
+	unsigned char *getBuffer(); //NEED TO KNOW BUFFER, BUFFER SIZE, AND METADATA, NEED ALSO STERIO CHANNELS and bits (bit_depth)
 
 	/*
 	* virtual int getBufferSize()
 	* @return
 	*/
-	virtual int getBufferSize()=0;
+	int getBufferSize();
 
 	/*
 	* vitual void readFile()
 	* @param fileName - take file's name to read in values and pass them to the wav_header class
 	*/
-	virtual void readFile(const std::string &fileName)=0;
+	void readFile(const std::string &fileName);
 
 	/*
 	* virtual void writeFile()
 	* @param outfileName - take edited file's name to create new .wav file
 	*/
-	virtual void writeFile(const std::string &outFileName)=0;
+	void writeFile(const std::string &outFileName);
 
 	/*
 	* virtual -wav() used to delete allocated memory of buffer[]
