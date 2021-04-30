@@ -7,6 +7,7 @@
 
 #include "waveHeader.h"
 #include <string>
+#include <cstring>
 #include <vector>
 
 using namespace std;
@@ -16,7 +17,7 @@ using namespace std;
 */
 class wav {
 
-protected:
+public:
 	vector <SubChunkInfo> metadata;
 	unsigned char* buffer = NULL;
 	int data_bufferSize;
