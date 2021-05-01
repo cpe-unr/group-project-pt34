@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-run: menu.o menu.cpp
-	g++ -o run -std=c++11 menu.cpp
-=======
 output: main.cpp wav.o mylib.a
 	g++ -std=c++11 -o audio main.cpp Noisegate.o Normalization.o Echo.o
 
@@ -26,4 +22,3 @@ clean:
 	rm *.o output
 
 
->>>>>>> 6775e3ce7fc5fa54bb501b3139d5f458fc3c0674
