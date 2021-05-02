@@ -22,6 +22,7 @@ int main()
 */
 	int choice1;
 	int Icontinue = -1;
+	int addMods = 0;
 	string fileChoice;
 	wav wavfile1;
 	wav wavfile2;
@@ -45,7 +46,7 @@ int main()
 				*if they want to add another processor
 						*/
 			case 1:
-				while(Icontinue != 4)
+				do
 				{
 					cout << "What would you like to do with your file?\n";
 					cout << "1 - Echo\n";
@@ -64,10 +65,12 @@ int main()
 								Processor *processor1 = new Echo(1);
 								processor1->processBuffer(wavfile1.getBuffer(),wavfile1.getBufferSize(), wavfile1);
 								wavfile1.writeFile("echos.wav");
-
+								
 								cout << "You have chosen to echo the file, would you like to add another selection?\n1 for yes, 2 for no:\n";
-								cin>>Icontinue;
-								break;
+								cin>>addMods;
+								
+									break;
+								
 							}	
 						case 2:
 							{
@@ -77,7 +80,7 @@ int main()
 								wavfile2.writeFile("normalization.wav");
 
 								cout << "You have chosen to normalize the file, would you like to add another selection?\n1 for yes, 2 for no\n";
-								cin>>Icontinue;
+								cin>>addMods;
 								break;
 							}
 						case 3:
@@ -88,7 +91,7 @@ int main()
 								wavfile3.writeFile("noise.wav");
 
 								cout << "You have chosen to Noise Gate the file, would you like to add another selection?\n1 for yes, 2 for no\n";
-								cin>>Icontinue;
+								cin>>addMods;
 								break;
 							}
 
@@ -103,7 +106,7 @@ int main()
 							break;
 								
 					}
-				}
+				}while(Icontinue != 4 &&addMods!=2);
 			break;
 		case 2:
 			cout << "\nYou are given the chance to modify the metadata of any file, which will then be saved. This will override current data, or create data if not previously existed. Knowing this, you are free to pick a processor or set of processors, and they shall then be applied in sequence. \n\n";
