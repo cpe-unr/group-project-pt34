@@ -9,12 +9,12 @@
 
 using namespace std;
 
-const string testfile = "testing.wav";
+const string testfile = "testing.wav"; // inside main
 const string echofile = "echos.wav";
 const string limitfile = "limit.wav";
 const string noisefile = "noise.wav";
 
-int main()
+int main()//args[]
 {
 /**
 * this is the user's first choice of chosing a file
@@ -27,8 +27,6 @@ int main()
 	wav wavfile1;
 	wav wavfile2;
 	wav wavfile3;
-	
-	
 	while (choice1 != 3){
 		cout << "*******************************\n";
 		cout << " 1 - View file choices.\n";
@@ -37,6 +35,7 @@ int main()
 		cout << "Enter your choice and press return: ";
 
 		cin >> choice1;
+		//for(int i = 1; i<args.size;i++){  string testFile = args[i]   } ||NOT IN CORRECT PLACE
 		switch (choice1)
 		{
 				/**
@@ -61,10 +60,10 @@ int main()
 						case 1:
 							{	
 								cout<<"WORKS!"<<endl;
-								wavfile1.readFile(testfile);
+								wavfile1.readFile(testfile); // needs to be correct args[value]
 								Processor *processor1 = new Echo(1);
 								processor1->processBuffer(wavfile1.getBuffer(),wavfile1.getBufferSize(), wavfile1);
-								wavfile1.writeFile("echos.wav");
+								wavfile1.writeFile(testfile + "_echos.wav"); // LOOK HERE GIVES NEW NAMES FOR EACH FILE
 								
 								cout << "You have chosen to echo the file, would you like to add another selection?\n1 for yes, 2 for no:\n";
 								cin>>addMods;
@@ -74,7 +73,7 @@ int main()
 							}	
 						case 2:
 							{
-								wavfile2.readFile(testfile);
+								wavfile2.readFile(testfile);//args
 								Processor *processor2 = new Normalization();
 								processor2->processBuffer(wavfile2.getBuffer(),wavfile2.getBufferSize(), wavfile2);
 								wavfile2.writeFile("normalization.wav");
@@ -85,7 +84,7 @@ int main()
 							}
 						case 3:
 							{
-								wavfile3.readFile(testfile);
+								wavfile3.readFile(testfile);//args
 								Processor *processor = new Noisegate();
 								processor->processBuffer(wavfile3.getBuffer(),wavfile3.getBufferSize(), wavfile3);
 								wavfile3.writeFile("noise.wav");
