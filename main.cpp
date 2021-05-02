@@ -27,7 +27,7 @@ int main()//args[]
 	wav wavfile1;
 	wav wavfile2;
 	wav wavfile3;
-	while (choice1 != 3){
+	while (choice1 != 3 && addMods !=2){
 		cout << "*******************************\n";
 		cout << " 1 - View file choices.\n";
 		cout << " 2 - Help.\n";
@@ -59,7 +59,6 @@ int main()//args[]
 					{
 						case 1:
 							{	
-								cout<<"WORKS!"<<endl;
 								wavfile1.readFile(testfile); // needs to be correct args[value]
 								Processor *processor1 = new Echo(1);
 								processor1->processBuffer(wavfile1.getBuffer(),wavfile1.getBufferSize(), wavfile1);

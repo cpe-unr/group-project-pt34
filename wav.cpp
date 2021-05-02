@@ -11,7 +11,18 @@ wav_header wav::getwavHeader()
 {
 	return waveHeader;
 }
-
+chunkInfo wav::getchunkInfo()
+{
+	return chunkinfo;
+}
+FMT wav::getFMT()
+{
+	return fmt;
+}
+vector<SubChunkInfo> wav::getMetaData()
+{
+	return metadata;
+}
 unsigned char *wav::getBuffer()
 {
 	return buffer;
@@ -74,11 +85,21 @@ void wav::writeFile(const std::string &outFileName)
 	std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
 	outFile.write((char*)&waveHeader,sizeof(wav_header));
 	
+{   
+	short audio_format;
+	short num_channels;
+	int sample_rate;
+	int byte_rate;
+	short sample_alignment;
+	short bit_depth;
+};
 	//FMT
 	outFile.write("fmt ", 4);
 	int size = sizeof(FMT);
 	outFile.write((char*)&size, sizeof(size));
+	cout<<fmt.audio_format<<"||"<<fmt.num_channels<<"||"<<fmt.sample_rate<<"||"<<fmt.byte_rate<<"||"<<fmt.sample_alignment<<"||"<<fmt.bit_depth<<"||"<<" ::: This is inside FMT"<<endl;
 	outFile.write((char*)&fmt,sizeof(FMT));
+	//*****************************************
 	//MEDATADA
 	outFile.write("LIST", 4);
 	size = 4;
@@ -93,21 +114,21 @@ void wav::writeFile(const std::string &outFileName)
 		outFile.write((char*)&s, sizeof(chunkInfo));
 		outFile.write((char*)&s.buffer, sizeof(s.fmt_chunk_size));
 	}
-
+	//*****************************************
 	//DATA
 	outFile.write("DATA", 4);
 	outFile.write((char*)&data_bufferSize, sizeof(data_bufferSize));
 	outFile.write((char*)&buffer, data_bufferSize);
 	outFile.close();
 }
-/*
+
 wav::~wav()
 {
 	if(buffer != NULL)
 	{
 		delete[] buffer;
 	}
-}*/
+}
 
 
 

@@ -53,16 +53,7 @@ struct FMT
 /**
 * struct for METADATA data
 *
-* char info[]
-* char metadata_sub_1[]
-* int num_characters
-* char actual_data
-* char metadata_sub_2
-* int num_characters_2
-* char actual_data_2
-* char metadata_sub_n
-* int num_characters_n
-* char actual_data_n
+*contains all data from sub chunks info pointer 'buffer'
 */
 
 struct SubChunkInfo:public chunkInfo

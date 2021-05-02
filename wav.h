@@ -21,13 +21,11 @@ private:
 	vector <SubChunkInfo> metadata;
 	unsigned char* buffer = NULL;
 	int data_bufferSize;
-	
-public:
-	
 	wav_header waveHeader;
 	chunkInfo chunkinfo;
 	FMT fmt;
-
+	
+public:
 	/*
 	* wav_header getwavHeader() used to get class with values from the wav_header class
 	* @return
@@ -35,10 +33,23 @@ public:
 	wav_header getwavHeader();
 
 	/*
+	* chunkInfo getchunkInfo() used to get class with values from the chunkInfo class
+	* @return
+	*/
+	chunkInfo getchunkInfo();
+
+	/*
+	* FMT getFMT() used to get class with values from the FMT class
+	* @return
+	*/
+	FMT getFMT();
+	
+	vector<SubChunkInfo> getMetaData();
+	/*
 	* unsigned char *getBuffer() used to get buffer data
 	* @return
 	*/
-	unsigned char *getBuffer(); //NEED TO KNOW BUFFER, BUFFER SIZE, AND METADATA, NEED ALSO STERIO CHANNELS and bits (bit_depth)
+	unsigned char *getBuffer();
 
 	/*
 	* virtual int getBufferSize()
@@ -62,7 +73,8 @@ public:
 	* virtual -wav() used to delete allocated memory of buffer[]
 	* 
 	*/
-	//virtual ~wav();
+public:
+	virtual ~wav();
 };
 
 

@@ -15,7 +15,7 @@ void Noisegate::processBuffer(unsigned char* buffer, int bufferSize, wav wavfile
      * If it is 8 bits then run a for loop, setting buffer[i] to zero if it meets a threshold.
      * Same for 16 bit.
      */ 
-    if(wavfile.fmt.bit_depth == 8) 
+    if(wavfile.getFMT().bit_depth == 8) 
     {
         std::cout << "In the 8 bit" << std::endl;
         for(int i=0;i<bufferSize;i++)
@@ -26,7 +26,7 @@ void Noisegate::processBuffer(unsigned char* buffer, int bufferSize, wav wavfile
             }
         }
     }
-    else if(wavfile.fmt.bit_depth == 16){
+    else if(wavfile.getFMT().bit_depth == 16){
         std::cout << "In the 16 bit" << std::endl;
         for(int i=0;i<bufferSize/2;i++)
         {
