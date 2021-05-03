@@ -3,7 +3,7 @@
 #include <limits>
 
 template<class T> int numeric_limit;
-void Normalization::processBuffer(unsigned char* buffer, int bufferSize, FMT fmt){
+void Normalization::processBuffer(unsigned char* buffer, int bufferSize, wav wavfile){
     if(fmt.bit_depth == 8){
        
         unsigned char leftmax=0, rightmax=0;
