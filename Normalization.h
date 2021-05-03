@@ -1,8 +1,9 @@
 #ifndef NORMALIZATION_H
 #define NORMALIZATION_H
 #include "Processor.h"
-#include "wav.h"
+#include "Wav.h"
 
+template<class T> int numeric_limit;
 class Normalization: public Processor
 {
     public:
@@ -13,7 +14,7 @@ class Normalization: public Processor
     /**
      * Override of the buffer
      */
-    void processBuffer(unsigned char* buffer, int bufferSize, wav wavfile) override;
+    void processBuffer(unsigned char* buffer, int bufferSize, FMT fmt) override;
     
 };
 
