@@ -1,7 +1,7 @@
 #ifndef NORMALIZATION_H
 #define NORMALIZATION_H
 #include "Processor.h"
-#include "Wav.h"
+#include "wav.h"
 
 template<class T> int numeric_limit;
 class Normalization: public Processor
