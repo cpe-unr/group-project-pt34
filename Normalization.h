@@ -3,6 +3,7 @@
 #include "Processor.h"
 #include "wav.h"
 
+template<class T> int numeric_limit;
 class Normalization: public Processor
 {
     public:
