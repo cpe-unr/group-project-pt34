@@ -9,13 +9,21 @@
 
 using namespace std;
 
-const string testfile = "testing.wav"; // inside main
+//const string testfile = "testing.wav"; // inside main
 const string echofile = "echos.wav";
 const string limitfile = "limit.wav";
 const string noisefile = "noise.wav";
 
-int main()//args[]
+int main(int argc, char const *argv[]) 
 {
+
+	vector<string> testfile;
+
+	for(int i = 1; i < argc; i++)
+	{
+		testfile.push_back(argv[i]);
+
+	}
 /**
 * this is the user's first choice of chosing a file
 * @choice
@@ -59,40 +67,47 @@ int main()//args[]
 					{
 						case 1:
 							{	
-								wavfile1.readFile(testfile); // needs to be correct args[value]
-								Processor *processor1 = new Echo(1);
-								processor1->processBuffer(wavfile1.getBuffer(),wavfile1.getBufferSize(), wavfile1);
-								wavfile1.writeFile(testfile + "_echos.wav"); // LOOK HERE GIVES NEW NAMES FOR EACH FILE
-								
-								cout << "You have chosen to echo the file, would you like to add another selection?\n1 for yes, 2 for no:\n";
-								cin>>addMods;
-								
-									break;
-								
+								for(string s: testfile)
+								{
+									wavfile1.readFile(s);
+									Processor *processor1 = new Echo(1);
+									processor1->processBuffer(wavfile1.getBuffer(),wavfile1.getBufferSize(), wavfile1);
+									wavfile1.writeFile(s + "_echos.wav"); // LOOK HERE GIVES NEW NAMES FOR EACH FILE
+									
+									cout << "You have chosen to echo the file, would you like to add another selection?\n1 for yes, 2 for no:\n";
+									cin>>addMods;
+								}
+								break;
 							}	
 						case 2:
 							{
-								wavfile2.readFile(testfile);//args
-								Processor *processor2 = new Normalization();
-								processor2->processBuffer(wavfile2.getBuffer(),wavfile2.getBufferSize(), wavfile2);
-								wavfile2.writeFile("normalization.wav");
+								for(string s: testfile)
+								{
+									wavfile2.readFile(s);
+									Processor *processor2 = new Normalization();
+									processor2->processBuffer(wavfile2.getBuffer(),wavfile2.getBufferSize(), wavfile2);
+									wavfile2.writeFile(s + "_normalization.wav");
 
-								cout << "You have chosen to normalize the file, would you like to add another selection?\n1 for yes, 2 for no\n";
-								cin>>addMods;
+									cout << "You have chosen to normalize the file, would you like to add another selection?\n1 for yes, 2 for no\n";
+									cin>>addMods;
+								}
 								break;
 							}
 						case 3:
 							{
-								wavfile3.readFile(testfile);//args
-								Processor *processor = new Noisegate();
-								processor->processBuffer(wavfile3.getBuffer(),wavfile3.getBufferSize(), wavfile3);
-								wavfile3.writeFile("noise.wav");
+								for(string s: testfile)
+								{
+									wavfile3.readFile(s);
+									Processor *processor = new Noisegate();
+									processor->processBuffer(wavfile3.getBuffer(),wavfile3.getBufferSize(), wavfile3);
+									wavfile3.writeFile(s + "_noise.wav");
 
-								cout << "You have chosen to Noise Gate the file, would you like to add another selection?\n1 for yes, 2 for no\n";
-								cin>>addMods;
-								break;
+									cout << "You have chosen to Noise Gate the file, would you like to add another selection?\n1 for yes, 2 for no\n";
+									cin>>addMods;
+									break;
+								}
 							}
-
+							
 						case 4:
 							cout<<"Cancelled program\n";
 							choice1 == 3;
@@ -104,7 +119,7 @@ int main()//args[]
 							break;
 								
 					}
-				}while(Icontinue != 4 &&addMods!=2);
+				}while(Icontinue != 4 || addMods != 2);
 			break;
 		case 2:
 			cout << "\nYou are given the chance to modify the metadata of any file, which will then be saved. This will override current data, or create data if not previously existed. Knowing this, you are free to pick a processor or set of processors, and they shall then be applied in sequence. \n\n";
@@ -128,3 +143,4 @@ int main()//args[]
 	}
 return 0;
 }
+

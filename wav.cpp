@@ -83,19 +83,13 @@ file.close();
 void wav::writeFile(const std::string &outFileName)
 {
 	std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
+	int size = sizeof(wav_header);
+	outFile.write((char*)&size, sizeof(size));
 	outFile.write((char*)&waveHeader,sizeof(wav_header));
-	
-{   
-	short audio_format;
-	short num_channels;
-	int sample_rate;
-	int byte_rate;
-	short sample_alignment;
-	short bit_depth;
-};
+
 	//FMT
 	outFile.write("fmt ", 4);
-	int size = sizeof(FMT);
+	size = sizeof(FMT);
 	outFile.write((char*)&size, sizeof(size));
 	cout<<fmt.audio_format<<"||"<<fmt.num_channels<<"||"<<fmt.sample_rate<<"||"<<fmt.byte_rate<<"||"<<fmt.sample_alignment<<"||"<<fmt.bit_depth<<"||"<<" ::: This is inside FMT"<<endl;
 	outFile.write((char*)&fmt,sizeof(FMT));
