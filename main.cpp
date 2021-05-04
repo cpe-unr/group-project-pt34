@@ -14,6 +14,10 @@ const string echofile = "echos.wav";
 const string limitfile = "limit.wav";
 const string noisefile = "noise.wav";
 
+/**
+* Running files
+* @main - all the files are passed in, combined, and added for user implementation to run.
+*/
 int main(int argc, char const *argv[]) 
 {
 
