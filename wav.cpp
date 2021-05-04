@@ -83,22 +83,25 @@ file.close();
 void wav::writeFile(const std::string &outFileName)
 {
 	std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
-	int size = sizeof(wav_header);
-	outFile.write((char*)&size, sizeof(size));
 	outFile.write((char*)&waveHeader,sizeof(wav_header));
-
+	
 	//FMT
 	outFile.write("fmt ", 4);
-	size = sizeof(FMT);
+	int size = sizeof(FMT);
 	outFile.write((char*)&size, sizeof(size));
 	cout<<fmt.audio_format<<"||"<<fmt.num_channels<<"||"<<fmt.sample_rate<<"||"<<fmt.byte_rate<<"||"<<fmt.sample_alignment<<"||"<<fmt.bit_depth<<"||"<<" ::: This is inside FMT"<<endl;
 	outFile.write((char*)&fmt,sizeof(FMT));
 	//*****************************************
 	//MEDATADA
-	outFile.write("LIST", 4);
-	size = 4;
+	int count = 0;
 	for(SubChunkInfo s: metadata)
 	{
+		if(count ==0)
+		{
+			outFile.write("LIST", 4);
+			size = 4;
+			count ++;
+		}
 		size += (sizeof(chunkInfo) + s.fmt_chunk_size);
 	}
 	outFile.write((char*)&size, sizeof(size));
