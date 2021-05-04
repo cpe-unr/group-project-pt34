@@ -83,8 +83,6 @@ file.close();
 
 void wav::writeFile(const std::string &outFileName)
 {
-	int totalSize = waveHeader.wav_size;
-	int total;
 	std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
 	outFile.write((char*)&waveHeader,sizeof(wav_header));
 	
@@ -107,7 +105,6 @@ void wav::writeFile(const std::string &outFileName)
 		}
 		size += (sizeof(chunkInfo) + s.fmt_chunk_size);
 	}
-	total = size;
 	outFile.write((char*)&size, sizeof(size));
 	outFile.write("INFO", 4);
 	for(SubChunkInfo s: metadata)
@@ -120,9 +117,6 @@ void wav::writeFile(const std::string &outFileName)
 	outFile.write("DATA", 4);
 	outFile.write((char*)&data_bufferSize, sizeof(data_bufferSize));
 	outFile.write((char*)&buffer, data_bufferSize);
-	total += sizeof(wav_header) + sizeof(FMT) + sizeof(data_bufferSize);
-	totalSize -= total;
-	outFile.write((char*)&totalSize, sizeof(totalSize));
 	outFile.close();
 }
 
