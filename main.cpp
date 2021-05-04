@@ -110,7 +110,9 @@ int main(int argc, char const *argv[])
 							
 						case 4:
 							cout<<"Cancelled program\n";
-							choice1 == 3;
+							choice1 = 3;
+							Icontinue = 4;
+							addMods=2;
 							break;
 
 						default:
@@ -128,6 +130,7 @@ int main(int argc, char const *argv[])
 		case 3:
 			cout << "End of Program.\n";
 			choice1 = 3;
+			Icontinue =4;
 			break;
 
 	/**

@@ -14,7 +14,7 @@ Echo.o: Echo.h Echo.cpp
 	g++ -c -std=c++11 Echo.cpp
 
 Normalization.o: Normalization.h Normalization.cpp
-	g++ -c -std=c++11 Normalization.cpp
+	g++ -c -std=c++14 Normalization.cpp
 
 CSV.o: CSV.h CSV.cpp
 	g++ -c -std=c++11 CSV.cpp
