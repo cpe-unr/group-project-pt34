@@ -1,0 +1,62 @@
+\hypertarget{classNoisegate}{}\section{Noisegate Class Reference}
+\label{classNoisegate}\index{Noisegate@{Noisegate}}
+
+
+Inheritance diagram for Noisegate\+:
+% FIG 0
+
+
+Collaboration diagram for Noisegate\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNoisegate_acc984041f06bb8b59e652dcafdde0908}{Noisegate} ()=default
+\item 
+\hyperlink{classNoisegate_a71c4785fc5ab3b3fafc258efd12465b3}{Noisegate} (int upperthreshold, int lowerthreshold)
+\item 
+void \hyperlink{classNoisegate_ad379f3e2ec1b28788dbf65f4f9a4427c}{process\+Buffer} (unsigned char $\ast$buffer, int buffer\+Size, \hyperlink{classwav}{wav} wavfile) override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNoisegate_ab9db2126669c481fbcf99420ca6b8f06}\label{classNoisegate_ab9db2126669c481fbcf99420ca6b8f06}} 
+int {\bfseries upperthreshold}
+\item 
+\mbox{\Hypertarget{classNoisegate_a8324f40e9660dfb2244fd2925db26e14}\label{classNoisegate_a8324f40e9660dfb2244fd2925db26e14}} 
+int {\bfseries lowerthreshold}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNoisegate_acc984041f06bb8b59e652dcafdde0908}\label{classNoisegate_acc984041f06bb8b59e652dcafdde0908}} 
+\index{Noisegate@{Noisegate}!Noisegate@{Noisegate}}
+\index{Noisegate@{Noisegate}!Noisegate@{Noisegate}}
+\subsubsection{\texorpdfstring{Noisegate()}{Noisegate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Noisegate\+::\+Noisegate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default constructor \mbox{\Hypertarget{classNoisegate_a71c4785fc5ab3b3fafc258efd12465b3}\label{classNoisegate_a71c4785fc5ab3b3fafc258efd12465b3}} 
+\index{Noisegate@{Noisegate}!Noisegate@{Noisegate}}
+\index{Noisegate@{Noisegate}!Noisegate@{Noisegate}}
+\subsubsection{\texorpdfstring{Noisegate()}{Noisegate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Noisegate\+::\+Noisegate (\begin{DoxyParamCaption}\item[{int}]{upperthreshold,  }\item[{int}]{lowerthreshold }\end{DoxyParamCaption})}
+
+Parameterized constructor 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNoisegate_ad379f3e2ec1b28788dbf65f4f9a4427c}\label{classNoisegate_ad379f3e2ec1b28788dbf65f4f9a4427c}} 
+\index{Noisegate@{Noisegate}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Noisegate@{Noisegate}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}}
+{\footnotesize\ttfamily void Noisegate\+::process\+Buffer (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size,  }\item[{\hyperlink{classwav}{wav}}]{wavfile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Override of the buffer If it is 8 bits then run a for loop, setting buffer\mbox{[}i\mbox{]} to zero if it meets a threshold. Same for 16 bit.
+
+Implements \hyperlink{classProcessor_ad81c2b75979636bcee7f5182cdb79a86}{Processor}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Noisegate.\+h\item 
+Noisegate.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\hypertarget{classEcho}{}\section{Echo Class Reference}
+\label{classEcho}\index{Echo@{Echo}}
+
+
+Inheritance diagram for Echo\+:
+% FIG 0
+
+
+Collaboration diagram for Echo\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEcho_a9531515ffab8be1e38cbdc0e0e9338a6}{Echo} (int \hyperlink{classEcho_abf5c35aa942bfae1832de23bb261e444}{delay})
+\item 
+void \hyperlink{classEcho_af63c5069f6263bfb0a9f2b3ed0cef2f6}{process\+Buffer} (unsigned char $\ast$buffer, int buffer\+Size, \hyperlink{classwav}{wav} wavfile) override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classEcho_abf5c35aa942bfae1832de23bb261e444}{delay}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEcho_a9531515ffab8be1e38cbdc0e0e9338a6}\label{classEcho_a9531515ffab8be1e38cbdc0e0e9338a6}} 
+\index{Echo@{Echo}!Echo@{Echo}}
+\index{Echo@{Echo}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{Echo()}{Echo()}}
+{\footnotesize\ttfamily Echo\+::\+Echo (\begin{DoxyParamCaption}\item[{int}]{delay }\end{DoxyParamCaption})}
+
+If the remainder of the delay is not a multiple of 2, then add 1. Makes it so that it can work with stereo format audio. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classEcho_af63c5069f6263bfb0a9f2b3ed0cef2f6}\label{classEcho_af63c5069f6263bfb0a9f2b3ed0cef2f6}} 
+\index{Echo@{Echo}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}}
+{\footnotesize\ttfamily void Echo\+::process\+Buffer (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size,  }\item[{\hyperlink{classwav}{wav}}]{wavfile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+If the audio is 8 bit, enter the first for loop and process it. If it is 16 bit, enter the second for loop, typecast the buffer and proceed to process it. 
+
+Implements \hyperlink{classProcessor_ad81c2b75979636bcee7f5182cdb79a86}{Processor}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classEcho_abf5c35aa942bfae1832de23bb261e444}\label{classEcho_abf5c35aa942bfae1832de23bb261e444}} 
+\index{Echo@{Echo}!delay@{delay}}
+\index{delay@{delay}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{delay}{delay}}
+{\footnotesize\ttfamily int Echo\+::delay}
+
+Paramterized constructor with int delay. Buffer override will get data from the file and process it with an echo 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Echo.\+h\item 
+Echo.\+cpp\end{DoxyCompactItemize}

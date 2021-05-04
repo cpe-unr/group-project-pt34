@@ -1,0 +1,29 @@
+\hypertarget{structchunkInfo}{}\section{chunk\+Info Struct Reference}
+\label{structchunkInfo}\index{chunk\+Info@{chunk\+Info}}
+
+
+{\ttfamily \#include $<$wave\+Header.\+h$>$}
+
+
+
+Inheritance diagram for chunk\+Info\+:
+% FIG 0
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structchunkInfo_a996bc39d8276381e30c444bcdd63f6b6}\label{structchunkInfo_a996bc39d8276381e30c444bcdd63f6b6}} 
+char {\bfseries fmt\+\_\+header} \mbox{[}4\mbox{]}
+\item 
+\mbox{\Hypertarget{structchunkInfo_a77e765bac0cd22c46d6acaaacc7374dc}\label{structchunkInfo_a77e765bac0cd22c46d6acaaacc7374dc}} 
+int {\bfseries fmt\+\_\+chunk\+\_\+size}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct use to gather common chunk info to read all other data
+
+char fmt\+\_\+header\mbox{[}\mbox{]} int fmt\+\_\+chunk\+\_\+size 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+wave\+Header.\+h\end{DoxyCompactItemize}
