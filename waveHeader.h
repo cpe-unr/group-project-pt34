@@ -1,5 +1,5 @@
 //Author: Seth Lopez
-//Date Due:
+//Date Due: 5/4/21
 //Purpose: Group Final Project
 
 #ifndef WAVEHEADER_H
@@ -51,7 +51,9 @@ struct FMT
 };
 
 /**
-* struct for METADATA data
+* struct for subChunkInfo
+*
+*Inherits chunkInfo
 *
 *contains all data from sub chunks info pointer 'buffer'
 */

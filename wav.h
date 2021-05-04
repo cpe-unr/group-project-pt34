@@ -1,5 +1,5 @@
 //Author: Seth Lopez
-//Date Due:
+//Date Due: 5/4/21
 //Purpose: Group Final Project
 
 #ifndef WAV_H
@@ -43,7 +43,11 @@ public:
 	* @return
 	*/
 	FMT getFMT();
-	
+	/*
+	* vector function getMetaData
+	*
+	* @returns metadata
+	*/
 	vector<SubChunkInfo> getMetaData();
 	/*
 	* unsigned char *getBuffer() used to get buffer data
@@ -69,11 +73,12 @@ public:
 	*/
 	void writeFile(const std::string &outFileName);
 
+
+public:
 	/*
 	* virtual -wav() used to delete allocated memory of buffer[]
 	* 
 	*/
-public:
 	virtual ~wav();
 };
 
